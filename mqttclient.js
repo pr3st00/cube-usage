@@ -23,7 +23,7 @@ function addHandler(io)
 {
     client.on('message', function (topic, message) {
         console.log("Received message : ", message.toString())
-        io.emit(message.toString())
+        io.emit("cube", message.toString())
     })
 }
 

@@ -9,6 +9,8 @@ var index = require('./routes/index');
 var mqttreceiver = require('./routes/mqttreceiver');
 
 var app = express();
+app.listen(3000);
+
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
