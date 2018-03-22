@@ -9,6 +9,8 @@ var index = require('./routes/index');
 var mqttreceiver = require('./routes/mqttreceiver');
 
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,5 +44,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+var mqttclient = require('./mqttclient')
+
+mqttclient.connect()
+mqttclient.addHandler(io)
 
 module.exports = app;
