@@ -9,8 +9,6 @@ var index = require('./routes/index');
 var mqttreceiver = require('./routes/mqttreceiver');
 
 var app = express();
-app.listen(3000);
-
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
@@ -51,5 +49,9 @@ var mqttclient = require('./mqttclient')
 
 mqttclient.connect()
 mqttclient.addHandler(io)
+
+http.listen(8081, function(){
+  console.log('listening on *:3000');
+});
 
 module.exports = app;

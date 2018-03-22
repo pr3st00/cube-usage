@@ -4,15 +4,31 @@ block content
   h1= title
   p #{title} Application
 
-  script(src="https://code.jquery.com/jquery-1.9.1.min.js")
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js")
-
   script(type='text/javascript').
-    var socket = io();
 
-    io.on('connection', function(socket){
+    function init() {
+      var socket = io();
+
       socket.on('cube', function(msg){
-        alert('message: ' + msg);
+        console.log("Received :" + msg);
+
+        var event = JSON.parse(msg);
+
+        var status = event.occupied ? "ocupada" : "desocupada";
+        
+        //alert(msg.occupied);
+
+        $('#events').append('<li> Baia esta ' + status + '</li>');
+
       });
-    });
+    
+    }
+
+  a(href="javascript:init()")
+   button(type="button") Start listening
+
+  br
+  br
+
+  div(id='events')
 
