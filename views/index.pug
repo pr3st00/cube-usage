@@ -37,9 +37,9 @@ block content
         var event = JSON.parse(msg);
 
         var image  = event.occupied ? "occupied.png" : "away.png";
-        var status = event.occupied ? "ocupada" : "desocupada";
+        var status = event.occupied ? "occupied" : "free";
         
-        $('#events').append("&nbsp <img src='/images/" + image + "' height='20' width='20'> Baia esta " + status + "<br/>");
+        $('#events').append("&nbsp <img src='/images/" + image + "' height='20' width='20'> Cube XX is now " + status + "<br/>");
 
       });
     
