@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+const PORT = 8081;
+
 var index = require('./routes/index');
 var mqttreceiver = require('./routes/mqttreceiver');
 
@@ -50,8 +52,8 @@ var mqttclient = require('./mqttclient')
 mqttclient.connect()
 mqttclient.addHandler(io)
 
-http.listen(8081, function(){
-  console.log('listening on *:3000');
+http.listen(PORT, function(){
+  console.log("listening on *:"+PORT);
 });
 
 module.exports = app;

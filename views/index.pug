@@ -2,33 +2,45 @@ extends layout
 
 block content
   h1= title
-  p #{title} Application
+  p Shows cube usage in realtime
+
+  link(rel='stylesheet', href='/javascripts/jquery-window-5.0.4/window/css/jquery.window.css')
+  
+  script(src="/javascripts/jquery-ui-1.12.1.custom/jquery-ui.js")
+  script(src="/javascripts/jquery-window-5.0.4/window/jquery.window.js")
 
   script(type='text/javascript').
 
-    function init() {
+    $( document ).ready(function() {
+    
       var socket = io();
+      var div = "<div id='events' style='padding:10px; font-size:14px;'></div>";
+
+      $.window({
+        title: "Cube events",
+        content: div,
+        width: 450,
+        height: 450,
+        x: 800,
+        y: 10,
+        draggable: true,
+        resizable: true,
+        maximizable: false,
+        minimizable: true,
+        closable: false,
+        showModal: false
+      });
 
       socket.on('cube', function(msg){
         console.log("Received :" + msg);
 
         var event = JSON.parse(msg);
 
+        var image  = event.occupied ? "occupied.png" : "away.png";
         var status = event.occupied ? "ocupada" : "desocupada";
         
-        //alert(msg.occupied);
-
-        $('#events').append('<li> Baia esta ' + status + '</li>');
+        $('#events').append("&nbsp <img src='/images/" + image + "' height='20' width='20'> Baia esta " + status + "<br/>");
 
       });
     
-    }
-
-  a(href="javascript:init()")
-   button(type="button") Start listening
-
-  br
-  br
-
-  div(id='events')
-
+    });
