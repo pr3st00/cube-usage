@@ -1,20 +1,25 @@
+'use strict'
+
 var mqtt = require('mqtt')
+var config = require('./config')
 
 var client;
 
 function connect()
 {
+    var url = "mqtt://" + config.bluemix.orgId + ".messaging.internetofthings.ibmcloud.com";
+
     client  = mqtt.connect(
-        'mqtt://ksp4zs.messaging.internetofthings.ibmcloud.com',
+        url,
         {
-            clientId : "a:ksp4zs:appId",
-            username:  "a-ksp4zs-1nmmupiwoq",
-            password:  "H1?ae65zhkIWItsi)u"
+            clientId : config.mqtt.clientId,
+            username:  config.mqtt.username,
+            password:  config.mqtt.password
         }
     )
     
     client.on('connect', function () {
-        client.subscribe('iot-2/type/Baia/id/raspi_leandro/cmd/vacancyStatus/fmt/json')
+        client.subscribe(config.mqtt.topic)
     })
     
 }

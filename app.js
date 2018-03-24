@@ -5,10 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-const PORT = 8081;
+var config = require('./config');
 
 var index = require('./routes/index');
-var mqttreceiver = require('./routes/mqttreceiver');
+var appconfig = require('./routes/appconfig');
 
 var app = express();
 var http = require('http').Server(app);
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/mqttreceiver',mqttreceiver);
+app.use('/appconfig', appconfig);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,8 +52,8 @@ var mqttclient = require('./mqttclient')
 mqttclient.connect()
 mqttclient.addHandler(io)
 
-http.listen(PORT, function(){
-  console.log("listening on *:"+PORT);
+http.listen(config.nodejs.port, function(){
+  console.log("listening on *:" + config.nodejs.port);
 });
 
 module.exports = app;

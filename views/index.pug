@@ -14,11 +14,13 @@ block content
 
     $( document ).ready(function() {
     
+      var config = getAppConfig()
+      
       var socket = io();
-      var images = drawImages();
+      var images = drawImages(config);
       
       var div  = "<div id='events' style='padding:10px; font-size:14px;'></div>";
-      var div2 = "<br/><br/><div id='graphical' style='padding:10px; font-size:14px;'>" + images + "</div>";
+      var div2 = "<div id='graphical' style='padding:10px; font-size:14px;'>" + images + "</div>";
 
       $.window({
         title: "Cube events",
@@ -38,8 +40,8 @@ block content
       $.window({
         title: "Graphical",
         content: div2,
-        width: 530,
-        height: 450,
+        width: 65 * config.max_x,
+        height: 150 * config.max_y,
         x: 200,
         y: 200,
         draggable: true,
