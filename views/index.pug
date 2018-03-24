@@ -8,54 +8,16 @@ block content
   
   script(src="/javascripts/jquery-ui-1.12.1.custom/jquery-ui.js")
   script(src="/javascripts/jquery-window-5.0.4/window/jquery.window.js")
-
+  script(src="/javascripts/functions.js")
+ 
   script(type='text/javascript').
-
-    const MAX_IMAGES = 16;
 
     $( document ).ready(function() {
     
       var socket = io();
-      var images = "<br/><br/><br/>";
-      var imageClass;
+      var images = drawImages();
       
-      for (var i=0; i<MAX_IMAGES; i++)
-      {
-
-        if (i >= MAX_IMAGES/2)
-        {
-          if (i%2 == 0)
-          { 
-            imageClass = "flipped3";
-          }
-          else
-          {
-            imageClass = "flipped2";
-          }
-        }
-        else
-        {
-          if (i%2 == 0)
-          {
-            imageClass = "img";
-          }
-          else
-          {
-            imageClass = "flipped";
-          }
-        }
-
-        if (i == MAX_IMAGES/2)
-        {
-          images += "<br/><br/></br>"
-        }
-
-        images += "<img src='/images/cubicle.png' id='cube" 
-          + i 
-          + "' width='60' height='60' class='" + imageClass + "'/>"
-      }
-
-      var div  = "<div id='events'    style='padding:10px; font-size:14px;'></div>";
+      var div  = "<div id='events' style='padding:10px; font-size:14px;'></div>";
       var div2 = "<br/><br/><div id='graphical' style='padding:10px; font-size:14px;'>" + images + "</div>";
 
       $.window({
@@ -88,11 +50,10 @@ block content
         showModal: false
       });
       
-      socket.on('cube', function(msg){
+      socket.on('cube', function(msg)
+      {
+        // {"cube":"AH01","occupied":true,"position":{"x":1,"y":1},"timestamp":1521900932023}
         console.log("Received :" + msg);
-
-        // simulates cube info... remove later
-        var cubeNumber = Math.floor((Math.random() * 14) + 1); 
 
         var occupiedImageIndex = Math.floor((Math.random() * 3) + 1);
         var event = JSON.parse(msg);
@@ -101,8 +62,8 @@ block content
         var status = event.occupied ? "occupied" : "free";
         var image  = event.occupied ? "/images/ibmCubeOcuppied_0" + occupiedImageIndex + ".png" : "/images/cubicle.png";  
         
-        $('#events').append("&nbsp <img src='/images/" + icon + "' height='20' width='20'> Cube " + cubeNumber + " is now " + status + "<br/>");
-        $("#cube"+cubeNumber).attr("src",image);
+        $('#events').append("&nbsp <img src='/images/" + icon + "' height='20' width='20'> Cube " + event.cube + " is now " + status + "<br/>");
+        $("#cube"+event.position.x+event.position.y).attr("src",image);
 
       });
     
