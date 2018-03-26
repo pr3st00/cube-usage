@@ -52,7 +52,9 @@ var mqttclient = require('./mqttclient')
 mqttclient.connect()
 mqttclient.addHandler(io)
 
-http.listen(config.nodejs.port, function(){
+var port = process.env.PORT || config.nodejs.port;
+
+http.listen(port, function(){
   console.log("listening on *:" + config.nodejs.port);
 });
 
