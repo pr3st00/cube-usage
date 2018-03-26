@@ -1,0 +1,4 @@
+---
+applications:
+ - name: cube-events
+   memory: 512MB
