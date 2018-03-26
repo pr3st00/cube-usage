@@ -8,11 +8,12 @@ var client;
 function connect()
 {
     var url = "mqtt://" + config.bluemix.orgId + ".messaging.internetofthings.ibmcloud.com";
+    var clientId = process.env.MQTT_CLIENT_ID || config.mqtt.clientId
 
     client  = mqtt.connect(
         url,
         {
-            clientId : config.mqtt.clientId,
+            clientId : clientId,
             username:  config.mqtt.username,
             password:  config.mqtt.password
         }

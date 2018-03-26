@@ -16,7 +16,7 @@ config.bluemix = {
 }
 
 config.mqtt = {
-    clientId : "a:ksp4zs:appId",
+    clientId : "a:ksp4zs:localApp1",
     username : "a-ksp4zs-1nmmupiwoq",
     password : "H1?ae65zhkIWItsi)u",
     topic    : "iot-2/type/Baia/id/raspi_leandro/cmd/vacancyStatus/fmt/json"

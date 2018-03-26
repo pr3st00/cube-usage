@@ -11,8 +11,10 @@ var index = require('./routes/index');
 var appconfig = require('./routes/appconfig');
 
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var http = require('http');
+var server = http.createServer(app);
+
+var io = require('socket.io').listen(server);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,8 +56,6 @@ mqttclient.addHandler(io)
 
 var port = process.env.APP_PORT || config.nodejs.port;
 
-http.listen(port, function(){
-  console.log("listening on *:" + port);
-});
+server.listen(port);
 
 module.exports = app;
