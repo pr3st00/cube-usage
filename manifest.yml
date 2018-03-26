@@ -2,3 +2,5 @@
 applications:
  - name: cube-events
    memory: 512MB
+   env:
+     VCAP_APP_PORT = 3000
