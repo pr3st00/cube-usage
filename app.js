@@ -55,7 +55,7 @@ mqttclient.addHandler(io)
 var port = process.env.PORT || config.nodejs.port;
 
 http.listen(port, function(){
-  console.log("listening on *:" + config.nodejs.port);
+  console.log("listening on *:" + port);
 });
 
 module.exports = app;
