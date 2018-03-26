@@ -4,17 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var mqttclient = require('./mqttclient')
 var config = require('./config');
 
 var index = require('./routes/index');
 var appconfig = require('./routes/appconfig');
 
 var app = express();
-var http = require('http');
-var server = http.createServer(app);
+var server = require('http').createServer(app);
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io')(server);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,7 +48,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var mqttclient = require('./mqttclient')
+io.on('connection', function(){ console.log("IO connected") });
 
 mqttclient.connect()
 mqttclient.addHandler(io)
@@ -57,5 +56,6 @@ mqttclient.addHandler(io)
 var port = process.env.APP_PORT || config.nodejs.port;
 
 server.listen(port);
+console.log("Started the server on port: " + port);
 
 module.exports = app;
