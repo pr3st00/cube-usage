@@ -9,6 +9,7 @@ var config = require('./config');
 
 var index = require('./routes/index');
 var appconfig = require('./routes/appconfig');
+var cubeDetails = require('./routes/cubeDetails');
 
 var app = express();
 var server = require('http').createServer(app);
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/appconfig', appconfig);
+app.use('/cubeDetails', cubeDetails);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

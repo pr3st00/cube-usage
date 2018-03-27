@@ -40,7 +40,7 @@ block content
       $.window({
         title: "Graphical",
         content: div2,
-        width: 65 * config.max_x,
+        width: (63 * config.max_x) + 20,
         height: 150 * config.max_y,
         x: 200,
         y: 200,
@@ -66,6 +66,7 @@ block content
         
         $('#events').append("&nbsp <img src='/images/" + icon + "' height='20' width='20'> Cube " + event.cube + " is now " + status + "<br/>");
         $("#cube"+event.position.x+event.position.y).attr("src",image);
+        $("#cube"+event.position.x+event.position.y).unbind('click').bind('click', function() { showCubeDetailsWindow(event.cube) });
 
       });
     

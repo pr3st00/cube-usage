@@ -42,3 +42,21 @@
 
         return JSON.parse(response);
     }
+
+    function showCubeDetailsWindow(cubeName)
+    {
+       $.window({
+        title: cubeName + " details",
+        url: "/cubeDetails",
+        width: 500,
+        height: 500,
+        x: -1,
+        y: -1,
+        draggable: true,
+        resizable: true,
+        maximizable: false,
+        minimizable: true,
+        closable: true,
+        showModal: true
+      });
+    }
