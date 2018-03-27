@@ -53,7 +53,7 @@ io.on('connection', function(){ console.log("IO connected") });
 mqttclient.connect()
 mqttclient.addHandler(io)
 
-var port = process.env.APP_PORT || config.nodejs.port;
+var port = process.env.PORT || config.nodejs.port;
 
 server.listen(port);
 console.log("Started the server on port: " + port);
