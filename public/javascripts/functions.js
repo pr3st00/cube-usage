@@ -47,7 +47,7 @@
     {
        $.window({
         title: cubeName + " details",
-        url: "/cubeDetails",
+        url: "/cubeDetails?cube="+cubeName,
         width: 500,
         height: 500,
         x: -1,
