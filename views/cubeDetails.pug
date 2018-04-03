@@ -3,6 +3,7 @@ extends layout
 block content
   h1= title
   p Cube Details
+  
 
   link(rel='stylesheet', href='/javascripts/jquery-window-5.0.4/window/css/jquery.window.css')
   
@@ -12,7 +13,15 @@ block content
  
   script(type='text/javascript').
 
-    $( document ).ready(function() {
-    
- 
-    });
+  div#wrapper                 
+    ul
+      each val in dbData
+        li= "Topic: " + val.topic
+        li= "DeviceID: " + val.deviceId
+        ul
+          li= "Cube: " + val.payload.cube
+          li= "Occupied: " + val.payload.occupied
+          
+      else
+        li There are no values
+        

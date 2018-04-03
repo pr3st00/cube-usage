@@ -6,6 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "@cloudant/cloudant": "^2.1.0",
     "body-parser": "~1.18.2",
     "cf-env": "^0.1.4-DEPRECATED-USE-cfenv-INSTEAD",
     "cookie-parser": "~1.4.3",
