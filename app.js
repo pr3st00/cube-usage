@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mqttclient = require('./mqttclient')
-var config = require('./config');
+var mqttclient = require('./mqtt/client')
+var config = require('./config/config.json');
 
 var index = require('./routes/index');
 var appconfig = require('./routes/appconfig');

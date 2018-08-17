@@ -1,0 +1,32 @@
+{
+    "app": {
+        "max_x": "8",
+        "max_y": "2"
+    },
+    "nodejs": {
+        "port": "8081"
+    },
+    "mqtt": {
+        "cube": {
+            "orgId": "ksp4zs",
+            "clientId": "a:ksp4zs:localApp1",
+            "username": "a-ksp4zs-1nmmupiwoq",
+            "password": "H1?ae65zhkIWItsi)u",
+            "topic": "iot-2/type/Baia/id/raspi_leandro/cmd/vacancyStatus/fmt/json"
+        },
+        "cube2": {
+            "orgId": "kj78sj",
+            "clientId": "a:kj78sj:localApp1",
+            "username": "a-kj78sj-4fw1gsxso6",
+            "password": "t1m@Y5VTvEXJz7hljt",
+            "topic": "iot-2/type/+/id/+/evt/event_id/fmt/json"
+        }
+    },
+    "db": {
+        "host": "4c1b9c3f-b41b-482b-9e07-9d9fbfe73997-bluemix.cloudant.com",
+        "port": 443,
+        "dbname": "occupied",
+        "username": "4c1b9c3f-b41b-482b-9e07-9d9fbfe73997-bluemix",
+        "password": "db04388642355cf9d5918024b09ef020939b72c7c5f0477d000e7c43313e0627"
+    }
+}

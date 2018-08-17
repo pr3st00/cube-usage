@@ -1,0 +1,25 @@
+{
+    "app": {
+        "max_x": "8",
+        "max_y": "2"
+    },
+    "nodejs": {
+        "port": "8081"
+    },
+    "mqtt": {
+        "cube": {
+            "orgId": "<bluemixOrgId>",
+            "clientId": "<clientId>",
+            "username": "<username>",
+            "password": "<password>",
+            "topic": "<topic>"
+        }
+    },
+    "db": {
+        "host": "<cloudantHostName>",
+        "port": 443,
+        "dbname": "occupied",
+        "username": "<cloudantUsername>",
+        "password": "<cloudantPassword>"
+    }
+}
