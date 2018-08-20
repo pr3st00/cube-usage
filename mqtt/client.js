@@ -11,6 +11,12 @@ function connect() {
     var url = "mqtt://" + mqttConfig.orgId + ".messaging.internetofthings.ibmcloud.com";
     var clientId = process.env.MQTT_CLIENT_ID || mqttConfig.clientId
 
+    console.log("Connecting to MQTT with the following credentials:");
+    console.log("URL : " + url);
+    console.log("CLIENTID : " + clientId);
+    console.log("USERNAME : " + mqttConfig.username);
+    console.log("PASSWORD : " + mqttConfig.password);
+
     client = mqtt.connect(
         url,
         {
@@ -21,6 +27,7 @@ function connect() {
     )
 
     client.on('connect', function () {
+        console.log("Subscribring to topic : " + mqttConfig.topic);
         client.subscribe(mqttConfig.topic)
     })
 
