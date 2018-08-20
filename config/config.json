@@ -19,7 +19,7 @@
             "clientId": "a:kj78sj:localApp1",
             "username": "a-kj78sj-4fw1gsxso6",
             "password": "t1m@Y5VTvEXJz7hljt",
-            "topic": "iot-2/type/+/id/+/evt/event_id/fmt/json"
+            "topic": "iot-2/type/+/id/+/cmd/+/fmt/json"
         }
     },
     "db": {
