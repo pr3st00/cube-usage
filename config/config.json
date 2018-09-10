@@ -8,18 +8,18 @@
     },
     "mqtt": {
         "cube": {
-            "orgId": "ksp4zs",
-            "clientId": "a:ksp4zs:localApp1",
-            "username": "a-ksp4zs-1nmmupiwoq",
-            "password": "H1?ae65zhkIWItsi)u",
-            "topic": "iot-2/type/Baia/id/raspi_leandro/cmd/vacancyStatus/fmt/json"
+            "orgId": "55mgde",
+            "clientId": "a:55mgde:localApp1",
+            "username": "a-55mgde-gczbnrzsrz",
+            "password": "eKg_wJpI*_AdB1_FoP",
+            "topic": "iot-2/type/+/id/+/cmd/+/fmt/json"
         },
         "cube2": {
             "orgId": "kj78sj",
             "clientId": "a:kj78sj:localApp1",
             "username": "a-kj78sj-4fw1gsxso6",
             "password": "t1m@Y5VTvEXJz7hljt",
-            "topic": "iot-2/type/+/id/+/evt/+/fmt/json"
+            "topic": "iot-2/type/+/id/+/cmd/+/fmt/json"
         }
     },
     "db": {
