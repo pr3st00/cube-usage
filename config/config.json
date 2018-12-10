@@ -20,6 +20,13 @@
             "username": "a-kj78sj-4fw1gsxso6",
             "password": "t1m@Y5VTvEXJz7hljt",
             "topic": "iot-2/type/+/id/+/cmd/+/fmt/json"
+        },
+        "cube3": {
+            "orgId": "wgwr1a",
+            "clientId": "a:wgwr1a:localApp1",
+            "username": "a-wgwr1a-bxgkevbxlg",
+            "password": "*znBD+(sft-!ai4vm(",
+            "topic": "iot-2/type/+/id/+/evt/+/fmt/json"
         }
     },
     "db": {
