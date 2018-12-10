@@ -9,7 +9,9 @@ function connect() {
     let mqttConfig = config.mqtt.cube3;
 
     var url = "mqtt://" + mqttConfig.orgId + ".messaging.internetofthings.ibmcloud.com";
-    var clientId = process.env.MQTT_CLIENT_ID || mqttConfig.clientId
+    // var clientId = process.env.MQTT_CLIENT_ID || mqttConfig.clientId
+
+    var clientId = 'a:wgwr1a:cloudapp1';
 
     console.log("Connecting to MQTT with the following credentials:");
     console.log("URL : " + url);
