@@ -26,7 +26,7 @@
             "clientId": "a:wgwr1a:localApp1",
             "username": "a-wgwr1a-bxgkevbxlg",
             "password": "*znBD+(sft-!ai4vm(",
-            "topic": "iot-2/type/+/id/+/evt/+/fmt/json"
+            "topic": "iot-2/type/Baia/id/+/cmd/vacancyStatus/fmt/json"
         }
     },
     "db": {
