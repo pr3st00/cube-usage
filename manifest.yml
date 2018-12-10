@@ -4,4 +4,4 @@ applications:
    memory: 512MB
    env:
      APP_PORT: 3000
-     MQTT_CLIENT_ID : a:kj78sj:cloudApp1
+     MQTT_CLIENT_ID : a:wgwr1a:cloudapp1
