@@ -6,7 +6,7 @@ const config = require('../config/config.json')
 let client;
 
 function connect() {
-    let mqttConfig = config.mqtt.cube3;
+    let mqttConfig = config.mqtt.cube2;
 
     var url = "mqtt://" + mqttConfig.orgId + ".messaging.internetofthings.ibmcloud.com";
     // var clientId = process.env.MQTT_CLIENT_ID || mqttConfig.clientId
